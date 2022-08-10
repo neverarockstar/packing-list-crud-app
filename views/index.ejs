@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packing List</title>
+    <script src="https://kit.fontawesome.com/16d5fea40a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section class = "listContainer">
+        <h2>Packing List</h2>
+        <section class = "packingItem">
+            <form action="/" method = "POST" class = "listHeader">
+                <input type="text" name="title" value="title">
+                <textarea name="description" value = "description" id="" cols="30" rows="10"></textarea>
+                <button type = "submit"><span class = "fas fa-plus">Add Item</span></button>
+            </form>
+            <ul class = "packingList">
+                <% packingItems.forEach(item => {%>
+                <li class = "packingListItem">
+                    <div class = "packingListItemTitle">
+                        <%= item.title %>
+                    </div>
+                    <div class = "packingListItemDescription">
+                        <%= item.description %>
+                    </div>
+                    <a href="/edit/<%=item._id %>" class ="edit"><span class = "fas fa-edit"></span></a>
+                    <a href="/remove/<%=item._id %>" class ="remove"><span class = "fas fa-times"></span></a>
+                </li>
+                <% }) %>
+            </ul>
+        </section>
+    </section>
+
+</body>
+</html>
