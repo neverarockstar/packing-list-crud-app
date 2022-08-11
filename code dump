@@ -1,0 +1,81 @@
+<!-- <body>
+    <section class = "listContainer">
+        <h2>Packing List</h2>
+        <section class = "packingItem">
+            <ul class = "packingList">
+                <% packingItems.forEach(item => { %>
+                    <% if (item._id == idItem) { %>
+                        <li class = "packingListItem">
+                            <form action="/edit/<%= item._id %>" method = "POST">
+                                <input type="text" value="<%=item.title>" name="title" >
+                                <textarea rows="10" cols="30" name="description"> <%= item.description %> </textarea>
+                                <button type ="submit" class = "confirm">Confirm</button>
+                                <a href="/" class = "cancel">Cancel</a>
+                            </form>
+                        </li>
+                        
+                        <li class = "packingListItem">
+                            <div class = "packingListItemTitle">
+                                <%=item.title %>
+                            </div>
+                            <div class = "packingListItemDescription">
+                                <%=item.description %>
+                            </div>
+                            <a href="/edit/<%=item._id %>" class ="edit"><span class = "fas     fa-edit"></ span></a>
+                            <a href="/remove/<%=item._id %>" class ="remove"><span class = "fas         fa-times"></span></a>
+                        </li>
+                    <% } else { %>
+                        <li class = "packingListItem">
+                                    <div class = "packingListItemTitle">
+                                        <%=item.title %>
+                                    </div>
+                                    <div class = "packingListItemDescription">
+                                        <%=item.description %>
+                                    </div>
+                                    <a href="/edit/<%=item._id %>" class ="edit"><span class = "fas fa-edit"></span></a>
+                                    <a href="/remove/<%=item._id %>" class ="remove"><span class =  "fas fa-times"></span></a>
+                                </li>
+                            
+                    <% } %>
+                <% }) %>
+            </ul>
+        </section>
+    </section>
+
+</body> -->
+
+<!-- Mayanwolfe's code with my variables swapped in-->
+<body>
+    <section class="listContainer">
+        <h2>Edit List Item</h2>
+        <section class="packingItem">
+            <ul class="packingList">
+                <% packingList.forEach(item=> { %>
+                    <% if (item._id==idItem) { %>
+                        <li class="packingListItem">
+                            <form action="/edit/<%=item._id%>" method="POST">
+                                <input type="text" value="<%= item.title %>" name="title">
+                                <textarea rows="6" cols="45" name="description"><%= item.description %></textarea>
+                                <button type="submit" class="confirm">Confirm</button>
+                                <a href="/" class="cancel">Cancel</a>
+                            </form>
+                        </li>
+                        <% } else { %>
+                            <li class="packingListItem">
+                                <div class="packingListItemTitle">
+                                    <%= item.title %>
+                                </div>
+                                <div class="packingListItemDescription">
+                                    <%= item.description %>
+                                </div>
+                                <a href="/edit/<%= item._id %>" class="edit"> <span class="fas fa-edit"></span>
+                                </a>
+                                <a href="/remove/<%= item._id %>" class="remove"> <span class="fas fa-times"></span>
+                                </a>
+                            </li>
+                            <% } %>
+                                <% }) %>
+            </ul>
+        </section>
+    </section>
+</body>
